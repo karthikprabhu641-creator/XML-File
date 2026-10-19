@@ -1,0 +1,388 @@
+:root {
+  color-scheme: dark;
+  font-family: Georgia, "Times New Roman", serif;
+  background: #070b12;
+  color: #f3f0ed;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  background: #070b12;
+  scrollbar-color: #53617a #070b12;
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+  overflow-x: hidden;
+  background: #070b12;
+}
+
+.film {
+  position: relative;
+  height: 1100svh;
+}
+
+.film-stage {
+  position: sticky;
+  top: 0;
+  display: grid;
+  width: 100%;
+  height: 100svh;
+  place-items: center;
+  overflow: hidden;
+  background: #070b12;
+}
+
+.frame {
+  position: relative;
+  width: min(100vw, 100svh);
+  aspect-ratio: 1;
+  overflow: hidden;
+  isolation: isolate;
+  background: #0a111d;
+  contain: layout paint;
+}
+
+.scenes,
+.scene,
+.scene-photo,
+.scene-layer,
+.frame-wash,
+.video-wash,
+.film-vignette {
+  position: absolute;
+  inset: 0;
+}
+
+.scene {
+  overflow: hidden;
+  visibility: hidden;
+  background: #0a111d;
+  will-change: opacity, transform;
+}
+
+.scene-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  user-select: none;
+}
+
+.scene-layer {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  user-select: none;
+}
+
+.moon-cutout {
+  inset: 6% 5% auto auto;
+  width: 70%;
+  height: 70%;
+  object-fit: contain;
+  mix-blend-mode: screen;
+}
+
+.moon-portrait {
+  inset: 22% auto auto 5%;
+  width: 50%;
+  height: 66%;
+  object-fit: contain;
+  mix-blend-mode: screen;
+}
+
+.moon-sky {
+  inset: auto 0 0 auto;
+  width: 58%;
+  height: 55%;
+  object-fit: contain;
+  object-position: right bottom;
+  mix-blend-mode: screen;
+}
+
+.moon-detail {
+  inset: 4% auto auto 32%;
+  width: 45%;
+  height: 46%;
+  object-fit: contain;
+  mix-blend-mode: screen;
+  opacity: 0.72;
+}
+
+.ocean-detail {
+  inset: 14% 0 auto auto;
+  width: 69%;
+  height: 71%;
+  object-fit: contain;
+  object-position: right center;
+  mix-blend-mode: screen;
+}
+
+.face-detail {
+  inset: auto 0 0 auto;
+  width: 58%;
+  height: 79%;
+  object-fit: contain;
+  object-position: right bottom;
+  mix-blend-mode: screen;
+}
+
+.leaving-detail {
+  inset: 5% auto auto 0;
+  width: 61%;
+  height: 78%;
+  object-fit: contain;
+  object-position: left center;
+  mix-blend-mode: screen;
+}
+
+.frame-wash {
+  z-index: 2;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgb(7 12 23 / 10%) 9%, transparent 35%, rgb(4 8 16 / 47%) 100%),
+    linear-gradient(120deg, rgb(11 21 38 / 20%), transparent 65%);
+}
+
+.video-wash {
+  z-index: 3;
+  overflow: hidden;
+  visibility: hidden;
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+
+.video-wash video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.film-vignette {
+  z-index: 4;
+  pointer-events: none;
+  background: radial-gradient(ellipse at center, transparent 48%, rgb(3 6 12 / 37%) 100%);
+}
+
+.scene-headline,
+.scene-lyrics {
+  position: absolute;
+  z-index: 5;
+  display: flex;
+  margin: 0;
+  color: #f2edf2;
+  pointer-events: none;
+  text-shadow: 0 2px 26px rgb(3 6 13 / 45%);
+}
+
+.scene-headline {
+  right: 8%;
+  bottom: 11%;
+  flex-direction: column;
+  align-items: flex-end;
+  font-family: Arial, sans-serif;
+  font-size: clamp(0.72rem, 1.45vw, 1.3rem);
+  font-weight: 500;
+  letter-spacing: 0.35em;
+  line-height: 1.6;
+}
+
+.scene-lyrics {
+  flex-direction: column;
+  font-size: clamp(2rem, 5.4vw, 5.15rem);
+  font-weight: 400;
+  line-height: 0.95;
+}
+
+.lyric--soft {
+  font-style: italic;
+  letter-spacing: -0.045em;
+}
+
+.lyric--script {
+  font-size: 1.3em;
+  font-style: italic;
+  letter-spacing: -0.055em;
+}
+
+.scene--opening .scene-lyrics {
+  right: 12%;
+  bottom: 18%;
+  align-items: flex-end;
+}
+
+.scene--love .scene-lyrics {
+  inset: auto 11% 16% auto;
+  align-items: flex-end;
+}
+
+.scene--moonlight .scene-lyrics,
+.scene--forever .scene-lyrics {
+  right: 10%;
+  bottom: 11%;
+  align-items: flex-end;
+  font-size: clamp(1.7rem, 4.2vw, 4rem);
+}
+
+.scene--moonlight .scene-headline,
+.scene--forever .scene-headline {
+  right: auto;
+  bottom: auto;
+  top: 11%;
+  left: 9%;
+  align-items: flex-start;
+  font-size: clamp(0.62rem, 1.1vw, 1rem);
+}
+
+.scene--interlude .scene-photo {
+  object-position: center 44%;
+}
+
+.scene--wave .scene-lyrics {
+  right: 8%;
+  bottom: 15%;
+  align-items: flex-end;
+  font-size: clamp(2rem, 4.5vw, 4.3rem);
+}
+
+.scene--sea .scene-photo {
+  object-position: center 43%;
+}
+
+.scene--sea .scene-lyrics {
+  right: 9%;
+  bottom: 15%;
+}
+
+.scene--ocean .scene-lyrics {
+  left: 9%;
+  bottom: 12%;
+  font-size: clamp(2rem, 4.7vw, 4.4rem);
+}
+
+.scene--face .scene-lyrics {
+  left: 11%;
+  top: 15%;
+  font-size: clamp(2.25rem, 5vw, 4.8rem);
+}
+
+.scene--leaving .scene-lyrics {
+  right: 8%;
+  bottom: 13%;
+  align-items: flex-end;
+  font-size: clamp(1.7rem, 4.5vw, 4.2rem);
+}
+
+.scene--fly .scene-lyrics {
+  left: 9%;
+  bottom: 13%;
+  font-size: clamp(2.2rem, 5.2vw, 4.9rem);
+}
+
+.scene--forever .scene-lyrics {
+  right: 9%;
+  bottom: 13%;
+}
+
+.frame-interface {
+  position: absolute;
+  z-index: 7;
+  inset: 0;
+  pointer-events: none;
+}
+
+.timecode {
+  position: absolute;
+  top: clamp(18px, 3.2vw, 34px);
+  right: clamp(18px, 3.2vw, 36px);
+  color: rgb(246 243 241 / 78%);
+  font-family: Arial, sans-serif;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+}
+
+.timecode span {
+  color: rgb(246 243 241 / 48%);
+}
+
+.progress-track {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  background: rgb(238 237 236 / 20%);
+}
+
+.progress-track span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform: scaleX(0);
+  transform-origin: left center;
+  background: rgb(240 236 232 / 85%);
+  will-change: transform;
+}
+
+.scroll-cue {
+  position: absolute;
+  bottom: clamp(20px, 3vw, 32px);
+  left: 50%;
+  color: rgb(246 243 241 / 72%);
+  font-family: Arial, sans-serif;
+  font-size: 8px;
+  letter-spacing: 0.28em;
+  transform: translateX(-50%);
+  transition: opacity 180ms ease;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 600px) {
+  .scene--moonlight .scene-lyrics,
+  .scene--forever .scene-lyrics {
+    right: 7%;
+    bottom: 13%;
+    font-size: clamp(1.55rem, 7.2vw, 2.6rem);
+  }
+
+  .scene--leaving .scene-lyrics {
+    right: 6%;
+    font-size: clamp(1.55rem, 7vw, 2.6rem);
+  }
+
+  .scene-headline {
+    right: 6%;
+    letter-spacing: 0.25em;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

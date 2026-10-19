@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A scroll-driven reconstruction of the Blue Alight Motion film."
+    />
+    <meta name="theme-color" content="#070b12" />
+    <title>Blue — a scroll-driven film</title>
+  </head>
+  <body>
+    <main>
+      <section class="film" aria-label="Blue, a scroll-driven lyric film">
+        <div class="film-stage">
+          <div class="frame" id="frame" aria-live="off">
+            <div class="frame-wash" aria-hidden="true"></div>
+            <div class="scenes" id="scenes"></div>
+            <div class="video-wash" id="video-wash" aria-hidden="true">
+              <video
+                id="source-video"
+                muted
+                playsinline
+                preload="auto"
+                aria-hidden="true"
+              ></video>
+            </div>
+            <div class="film-vignette" aria-hidden="true"></div>
+            <div class="frame-interface" aria-hidden="true">
+              <span class="timecode" id="timecode">00:00 <span>/ 00:30</span></span>
+              <div class="progress-track"><span id="progress"></span></div>
+              <span class="scroll-cue" id="scroll-cue">SCROLL TO MOVE</span>
+            </div>
+            <p class="sr-only" id="transcript">
+              A blue-toned lyric film. Scroll to move through the original scenes;
+              scroll up to move backwards.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
